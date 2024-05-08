@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Diseases</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .container li {
+            display: inline-block;
+            width: 23%; /* Adjust as necessary */
+            margin: 1%;
+            padding: 10px;
+            background-color: #d8f3f5;
+            border-radius: 5px;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+      nav{
+    background: #65aebb;
+    height: 80px;
+    width: 100%;
+}
+label.logo{
+    color: white;
+    font-size: 25px;
+    line-height: 40px;
+    padding: 20px;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+nav ul{
+  float: right;
+    margin-right: 20px;
+}
+nav ul li{
+display: inline-block;
+line-height: 80px;
+margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+nav ul li ul{
+    position: absolute;
+    display: none;
+    background-color: #65aebb; 
+    border-radius: 9px;
+}
+nav ul li:hover ul{
+    display: block;
+}
+nav ul li ul li{
+    line-height: 1;
+    width: 170px;
+    border-radius: 3px;
+    padding: 4px;
+}
+    </style>
+</head>
+
+<body>
+  <nav>
+    <img src="disease prediction logo.png" width="270" height="70"style="margin-left: 40px;" />
+    <ul>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/default.html">Home</a></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/about.html">About</a></li>
+        <li><a href="http://127.0.0.1:5000">Predict</a></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/appointment.html">Appointment</a></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/contactForm.html">Contact</a></li>
+        <li><a href="#">Administrator</a>
+        <ul>
+          <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/predictablediseases.html">Prognosis</a></li>
+            <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/dataset.html">Dataset</a></li> 
+        </ul></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/auth.html">LogOut</a></li>
+    </ul>
+</nav>
+    <div class="container">
+        <h1>List of Predictable Diseases</h1>
+        <ul>
+            <li>Fungal infection</li>
+            <li>Allergy</li>
+            <li>GERD</li>
+            <li>Chronic cholestasis</li>
+            <li>Drug Reaction</li>
+            <li>Peptic ulcer disease</li>
+            <li>AIDS</li>
+            <li>Diabetes</li>
+            <li>Gastroenteritis</li>
+            <li>Bronchial Asthma</li>
+            <li>Hypertension</li>
+            <li>Migraine</li>
+            <li>Cervical spondylosis</li>
+            <li>Paralysis (brain hemorrhage)</li>
+            <li>Jaundice</li>
+            <li>Malaria</li>
+            <li>Chicken pox</li>
+            <li>Dengue</li>
+            <li>Typhoid</li>
+            <li>Hepatitis A</li>
+            <li>Hepatitis B</li>
+            <li>Hepatitis C</li>
+            <li>Hepatitis D</li>
+            <li>Hepatitis E</li>
+            <li>Alcoholic hepatitis</li>
+            <li>Tuberculosis</li>
+            <li>Common Cold</li>
+            <li>Pneumonia</li>
+            <li>Dimorphic hemorrhoids (piles)</li>
+            <li>Heart attack</li>
+            <li>Varicose veins</li>
+            <li>Hypothyroidism</li>
+            <li>Hyperthyroidism</li>
+            <li>Hypoglycemia</li>
+            <li>Osteoarthritis</li>
+            <li>Arthritis</li>
+            <li>(Vertigo) Paroxysmal Positional Vertigo</li>
+            <li>Acne</li>
+            <li>Urinary tract infection</li>
+            <li>Psoriasis</li>
+            <li>Impetigo</li>
+        </ul>
+    </div>
+</body>
+</html>

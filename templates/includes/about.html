@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction System | About Us page</title>
+    <link href="static/img/favicon.png" rel="icon"> 
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+    <style>
+      nav{
+    background: #65aebb;
+    height: 80px;
+    width: 100%;
+}
+label.logo{
+    color: white;
+    font-size: 25px;
+    line-height: 40px;
+    padding: 20px;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+nav ul{
+  float: right;
+    margin-right: 20px;
+}
+nav ul li{
+display: inline-block;
+line-height: 80px;
+margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+nav ul li ul{
+    position: absolute;
+    display: none;
+    background-color: #65aebb; 
+    border-radius: 9px;
+}
+nav ul li:hover ul{
+    display: block;
+}
+nav ul li ul li{
+    line-height: 1;
+    width: 170px;
+    border-radius: 3px;
+    padding: 4px;
+}
+    </style>
+</head>
+
+<body>
+  <nav>
+    <img src="disease prediction logo.png" width="270" height="70" style="margin-left: 40px;"/>
+    <ul>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/default.html">Home</a></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/about.html">About</a></li>
+        <li><a href="http://127.0.0.1:5000">Predict</a></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/appointment.html">Appointment</a></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/contactForm.html">Contact</a></li>
+        <li><a href="#">Administator</a>
+        <ul>
+          <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/predictablediseases.html">Prognosis</a></li>
+            <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/dataset.html">Dataset</a></li> 
+        </ul></li>
+        <li><a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/auth.html">LogOut</a></li>
+    </ul>
+</nav><br><br>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container-fluid">
+  
+          <div class="row">
+            <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
+              <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+            </div>
+  
+            <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+              <h3>How the system works</h3>
+              <p>The system analyzes input symptoms using machine learning algorithms, correlating patterns with known diseases. It leverages historical health data, identifies relevant features, and predicts the most probable disease. 
+                The patients can then book an appointment with an expert in the field of need for further consultation</p>
+  
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-fingerprint"></i></div>
+                <h4 class="title"><a href="">Authentication</a></h4>
+                <p class="description">We use secure authentication methods to ensure security of sensitive health data,
+                   ensuring patient privacy, maintaining data integrity, and adhering to legal and ethical standards, fostering trust among users.</p>
+              </div>
+  
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-gift"></i></div>
+                <h4 class="title"><a href="">UI/UX</a></h4>
+                <p class="description">The system entails an intuitive website where users can view interact with different functions while enjoying efficient accesibility and usability</p>
+              </div>
+  
+              <div class="icon-box">
+                <div class="icon"><i class="bx bx-atom"></i></div>
+                <h4 class="title"><a href="">Backend</a></h4>
+                <p class="description">The frontend collects user-input symptoms, sending them to the backend via Flask, a web framework. The backend processes the data, 
+                  predicts diseases using a ML model, and relays the feedback to the frontend for user presentation.</p>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+  
+      <!-- ======= Counts Section ======= -->
+      <section id="counts" class="counts">
+      <div class="section-title">
+        <h2 style="margin-left: 5%;">Statitics</h2>
+      </div>
+        <BR><BR>
+        <div class="container">
+          
+          <div class="row">
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+              <div class="count-box">
+                <i class="far fa-hospital"></i>
+                <span data-purecounter-start="0" data-purecounter-end="41" data-purecounter-duration="1" class="purecounter"></span>
+                <p>predictable diseases</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="fas fa-flask"></i>
+                <span data-purecounter-start="0" data-purecounter-end="94" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Accuracy(%)</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="fas fa-user-md"></i>
+                <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Available Doctors</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="fas fa-award"></i>
+                <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Min symptom required</p>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section>
+      <br><br>
+      <!-- ======= Departments Section ======= -->
+   <section id="departments" class="departments">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Departments</h2>
+        <p>"Your Health Hub: Nurturing Wellness, Providing Care – Where General Medicine Meets Personalized Attention for All Your Health Needs."</p>
+      </div>
+<br>
+      <div class="row gy-4">
+        <div class="col-lg-3">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Ophthalmology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Dermatology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Gynecology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Cardiology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-5">General medicine</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-9">
+          <div class="tab-content">
+            <div class="tab-pane active show" id="tab-1">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Ophthalmology Department (Eye Care):</h3>
+                  <p class="fst-italic">Specializes in eye examinations, vision correction, and treatment of eye conditions.</p>
+                  <p>Services: Comprehensive eye examinations, vision correction (glasses, contact lenses), treatment of eye diseases (glaucoma, cataracts), and surgical interventions (cataract surgery, LASIK).</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="static/img/departments-5.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-2">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Dermatology Department (Skin Care)</h3>
+                  <p class="fst-italic">Deals with skin-related issues, including diagnosis and treatment of skin conditions.</p>
+                  <p>Services: Diagnosis and treatment of skin conditions (acne, eczema, psoriasis), cosmetic dermatology, skin cancer screenings, and surgical procedures (biopsy, excision)</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="static/img/departments-3.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-3">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Gynecology Department (Women's Health)</h3>
+                  <p class="fst-italic">Specializes in women's reproductive health, offering services such as routine exams and family planning.</p>
+                  <p>Services: Women's wellness exams, prenatal care, family planning, gynecological surgeries, treatment of reproductive health issues (endometriosis, polycystic ovary syndrome), and menopausal care.</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="static/img/departments-4.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-4">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>Cardiology Department (Heart Health)</h3>
+                  <p class="fst-italic">Focuses on the diagnosis and management of heart-related conditions and cardiovascular health.</p>
+                  <p>Services: Diagnostic tests (ECG, echocardiogram), treatment of cardiovascular conditions (hypertension, heart disease), cardiac rehabilitation, and preventive care through lifestyle interventions.</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="static/img/departments-2.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-5">
+              <div class="row gy-4">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>General medicine department</h3>
+                  <p class="fst-italic">Your Comprehensive Health Care Solution Center</p>
+                  <p>Services: Primary care, routine health check-ups, management of common illnesses (colds, flu), preventive care, and referrals to specialized departments for further evaluation and treatment. The General Medicine Department serves as the first point of contact for various health concerns, offering comprehensive and holistic healthcare services.</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="static/img/departments-1.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Departments Section -->
+  <!-- Vendor JS Files -->
+  <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="./mail.js"></script>
+  <br><br>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>ACW <br>developers</h3>
+            <p>
+              P.O.BOX 30800 <br>
+              KSU CAMPUS, KISII<br>
+              KENYA <br><br>
+              <strong>Phone:</strong> +254 114 290 760<br>
+              <strong>Email:</strong> amosclinton196@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#predict">Departments</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#doctors">Doctors</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#faq">FAQs</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Appointment</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Doctors</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Subscribe to our reminder</h4>
+            <p> Subscribe to Our Gentle Health Reminders</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>ACW</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/ -->
+          Designed by <a href="acwportfoliosite.000webhostapp.com">ACW developers</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  </body>
+  </html>

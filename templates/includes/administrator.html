@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction System | Admin Page</title>
+    <style>
+      body {
+          margin: 0;
+          font-family: 'Arial', sans-serif;
+      }
+      form {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          max-width: 400px;
+          width: 100%;
+          box-sizing: border-box;
+      }
+
+      label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: bold;
+      }
+
+      input,
+      textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 16px;
+          border: 1px solid #65aebb;
+          border-radius: 4px;
+          box-sizing: border-box;
+      }
+
+      button {
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+      button:hover {
+          background-color: #0056b3;
+      }
+      header {
+          background-color: #3a7b86;
+          color: white;
+          padding: 20px;
+          height: 95px;
+          position: relative;
+          text-align: center;
+      }
+
+      nav {
+          width: 200px;
+          height: 100%;
+          background-color: #5b929c;
+          position: absolute;
+          padding-top: 20px;
+      }
+
+      nav a {
+          display: block;
+          color: white;
+          padding: 15px;
+          text-decoration: none;
+      }
+
+      main {
+          margin-left: 220px;
+          padding: 20px;
+      }
+
+      footer {
+          background-color: #3a7b86;
+          color: white;
+          text-align: center;
+          padding: 10px;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+      }
+       /* Doctor Info Styling */
+       .member {
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          margin-top: 20px;
+      }
+
+      .member .pic {
+          width: 50%;
+          overflow: hidden;
+          border-radius: 8px 0 0 8px;
+      }
+
+      .member .pic img {
+          width: 100%;
+          border-radius: 8px 0 0 8px;
+      }
+
+      .member .member-info {
+          padding: 20px;
+      }
+
+      .social a {
+          margin-right: 10px;
+          color: #1d2126;
+      }
+      button{
+        border-radius: 5px;
+      }
+
+  </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="font-size: 34px; font-weight: 600;">Disease Prediction System - Admin Page</h1>
+    </header>
+
+    <nav id="sidebar">
+        <a href="#" onclick="changeContent('settings')">Logged in Users</a>
+        <a href="#" onclick="changeContent('dashboard')">Edit doctor info</a>
+        <a href="admapt.html" onclick="changeContent('appointment')">Appointment details</a>
+        <a href="admin2.html" onclick="changeContent('users')">User Enquiry</a>
+        <a href="auth1.html" onclick="changeContent('exit')">Log Out</a>
+    </nav>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard-content" class="content-section" style="display: block;">
+          <h2>  Dashboard</h2>
+          <!-- Input Doctor Info Form -->
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Disease Prediction and Diagnosis System</title>
+          </head>
+          <body>
+             <!-- Input Doctor Info Form -->
+             <form id="doctorForm">
+              <label for="doctorName">Doctor Name:</label>
+              <input type="text" id="doctorName" name="doctorName">
+          
+              <label for="designation">Designation:</label>
+              <input type="text" id="designation" name="designation">
+          
+              <label for="description">Description:</label>
+              <textarea id="description" name="description"></textarea>
+          
+              <label for="doctorSelector">Select Doctor:</label>
+              <select id="doctorSelector">
+                  <option value="doctorInfo1">Doctor 1</option>
+                  <option value="doctorInfo2">Doctor 2</option>
+              </select>
+          
+              <button type="button" onclick="updateDoctorInfo()" style="border-radius: 5px;">Update Doctor Info</button>
+          </form>
+          
+          
+          <script>
+              // Function to update doctor information and redirect to displayDoctorInfo.html
+              function updateDoctorInfo() {
+                  var doctorName = document.getElementById('doctorName').value;
+                  var designation = document.getElementById('designation').value;
+                  var description = document.getElementById('description').value;
+                  var selectedDoctor = document.getElementById('doctorSelector').value;
+          
+                  // Construct the URL with parameters
+                  var url = 'appointment.html?' + 
+                      'doctorName=' + encodeURIComponent(doctorName) + 
+                      '&designation=' + encodeURIComponent(designation) + 
+                      '&description=' + encodeURIComponent(description) +
+                      '&selectedDoctor=' + encodeURIComponent(selectedDoctor);
+          
+                  // Redirect to the displayDoctorInfo.html page
+                  window.location.href = url;
+              }
+          </script>
+          
+          </body>
+          </html>
+        </section>
+
+        <!-- Logged in Users Section -->
+        <section id="users-content" class="content-section" style="display: none;">
+          
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings-content" class="content-section" style="display: none;">
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Firebase Authentication and Database Example</title>
+            <!-- Bootstrap CSS -->
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+          </head>
+          <body>
+            <div class="container">
+              <h1 class="text-center mb-4">Disease Prediction System-Firebase Authentication Data</h1>
+              <div id="userData" class="text-center">
+                <!-- User Data will be displayed here -->
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>User Email</th>
+                      <th>User ID</th>
+                      <th>Creation Timestamp</th>
+                      <th>Sign-In Timestamp</th>
+                      <th>Action</th> <!-- New column for delete button -->
+                    </tr>
+                  </thead>
+                  <tbody id="userDataBody">
+                    <!-- Table body will be populated with retrieved data -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          
+            <!-- Firebase JavaScript SDK -->
+            <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script> <!-- Add this line for Firebase Authentication -->
+          
+            <script>
+              // Firebase configuration
+              // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+              const firebaseConfig = {
+                apiKey: "AIzaSyB5t3zPBIoLbSN-I1xOBSR_lq-Z12ZJ-Fw",
+                authDomain: "shinerweb-auth-c29fe.firebaseapp.com",
+                projectId: "shinerweb-auth-c29fe",
+                storageBucket: "shinerweb-auth-c29fe.appspot.com",
+                messagingSenderId: "754492291109",
+                appId: "1:754492291109:web:3d5fff583ad4c662ace7cc",
+                measurementId: "G-7DVFZLX39P"
+              };
+          
+              // Initialize Firebase
+              firebase.initializeApp(firebaseConfig);
+          
+              // Get a reference to the database service
+              const database = firebase.database();
+          
+              // Function to format timestamp to a human-readable format
+              function formatTimestamp(timestamp) {
+                return new Date(timestamp).toLocaleString();
+              }
+          
+              // Function to render user data in the table
+              function renderUserData(userData, userId) {
+                const userDataBody = document.getElementById('userDataBody');
+                const newRow = userDataBody.insertRow();
+                newRow.innerHTML = `
+                  <td>${userData.email || ""}</td>
+                  <td>${userData.uid || ""}</td>
+                  <td>${formatTimestamp(userData.created)}</td>
+                  <td>${formatTimestamp(userData.lastSignInTime)}</td>
+                  <td><button onclick="deleteUser('${userId}')" style="border-radius: 5px;">Delete</button></td>
+                `;
+                
+                // Store user data in local storage
+                let storedUsers = JSON.parse(localStorage.getItem('loggedUsers')) || {};
+                storedUsers[userId] = userData;
+                localStorage.setItem('loggedUsers', JSON.stringify(storedUsers));
+              }
+          
+              // Retrieve user data from local storage and populate the table
+              function populateUserDataFromLocalStorage() {
+                const storedUsers = JSON.parse(localStorage.getItem('loggedUsers')) || {};
+                Object.keys(storedUsers).forEach(userId => {
+                  renderUserData(storedUsers[userId], userId);
+                });
+              }
+          
+              // Retrieve all existing user records from the database
+              const databaseRef = database.ref('/users'); // Assuming you have a 'users' node in your database
+              databaseRef.once('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                  const userData = childSnapshot.val();
+                  const userId = childSnapshot.key;
+                  renderUserData(userData, userId);
+                });
+              });
+          
+              // Listen for changes in the database in real-time
+              databaseRef.on('child_added', function(childSnapshot) {
+                const userData = childSnapshot.val();
+                const userId = childSnapshot.key;
+                renderUserData(userData, userId);
+              });
+          
+              // Function to delete a user
+              function deleteUser(userId) {
+                const userRef = database.ref('/users/' + userId);
+                userRef.remove()
+                  .then(function() {
+                    alert("User deleted successfully.");
+                    // Remove the row from the table upon successful deletion
+                    const tableRow = document.querySelector(`#userDataBody tr[data-userid="${userId}"]`);
+                    tableRow.remove();
+                  })
+                  .catch(function(error) {
+                    console.error("Error deleting user: ", error);
+                  });
+              }
+          
+              // Check if there's a user signed in
+              firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                  // User is signed in.
+                  // You can access the user's data and store it in your database
+                  const userData = {
+                    email: user.email,
+                    uid: user.uid,
+                    created: user.metadata.creationTime,
+                    lastSignInTime: user.metadata.lastSignInTime
+                  };
+                  // Save user data to the database
+                  database.ref('/users/' + user.uid).set(userData);
+                } else {
+                  // User is signed out.
+                  // Display a message or redirect to login page if needed.
+                  document.getElementById('userData').innerHTML = "<p>No user signed in.</p>";
+                }
+              });
+              
+              // Populate user data from local storage when the page loads
+              populateUserDataFromLocalStorage();
+            </script>
+          
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 Your Admin Page
+    </footer>
+
+    <script>
+        function changeContent(page) {
+            // Hide all content sections
+            var sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected content section
+            var selectedSection = document.getElementById(page + '-content');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

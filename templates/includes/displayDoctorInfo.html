@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction System</title>
+    <style>
+        /* CSS for styling */
+        .member {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .member .pic img {
+            margin: 4%;
+            width: 30%;
+            height: 30%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .member .member-info {
+            padding: 10px;
+            margin-left: 1%;
+        }
+
+        .member .member-info h5 {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #1c1010;
+        }
+
+        .member .member-info span {
+            display: block;
+            font-size: 14px;
+            color: #180b0b;
+        }
+
+        .member .member-info p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #1c0f0f;
+        }
+
+        .social {
+            margin-top: 10px;
+        }
+
+        .social a {
+            margin-right: 5px;
+        }
+
+        .social a i {
+            font-size: 20px;
+            color: #1c0f0f;
+        }
+    </style>
+</head>
+<body>
+   <!-- Displayed Doctor Info Section -->
+<div class="col-lg-6" id="displayedDoctorInfo">
+    <!-- Doctor information will be dynamically inserted here -->
+
+</div>
+
+<script>
+    // Function to extract URL parameters
+    function getURLParameter(name) {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Retrieve URL parameters
+    var doctorName = getURLParameter('doctorName');
+    var designation = getURLParameter('designation');
+    var description = getURLParameter('description');
+
+    // Update the displayed doctor information
+    var displayedDoctorInfo = document.getElementById('displayedDoctorInfo');
+    displayedDoctorInfo.innerHTML = `
+        <div class="member d-flex align-items-start">
+            <div class="pic"><img src="static/img/doctors/team 1.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+                <h4>${doctorName}</h4>
+                <span>${designation}</span>
+                <p>${description}</p>
+                <div class="social">
+                    <a href=""><i class="ri-twitter-fill"></i></a>
+                    <a href=""><i class="ri-facebook-fill"></i></a>
+                    <a href=""><i class="ri-instagram-fill"></i></a>
+                    <a href=""><i class="ri-linkedin-box-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    `;
+</script>
+
+</body>
+</html>

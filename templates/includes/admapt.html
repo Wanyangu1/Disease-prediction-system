@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction System | Admin Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #65aebb;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        header {
+            background-color: #3a7b86;
+            color: white;
+            padding: 10px;
+            position: relative;
+            text-align: center;
+        }
+
+        nav {
+            width: 200px;
+            height: 100%;
+            background-color: #5b929c;
+            position: absolute;
+            padding-top: 20px;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #3a7b86;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+         /* Doctor Info Styling */
+         .member {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .member .pic {
+            width: 50%;
+            overflow: hidden;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .member .pic img {
+            width: 100%;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .member .member-info {
+            padding: 20px;
+        }
+
+        .social a {
+            margin-right: 10px;
+            color: #007bff;
+        }
+ 
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Disease Prediction System - Admin Page</h1>
+    </header>
+
+    <nav id="sidebar">
+        <a href="administrator.html"onclick="changeContent('dashboard')">Dashboard</a>
+        <a href="administrator.html" onclick="changeContent('users')">Logged in Users</a>
+        <a href="admapt.html" onclick="changeContent('appointment')">Appointment details</a>
+        <a href="admin2.html" onclick="changeContent('enquiry')">User enquiry</a>
+        <a href="auth1.html" onclick="changeContent('settings')">Log Out</a>
+        <!-- Add more links as needed -->
+    </nav>
+
+    <main id="main-content"> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve Data Form</title>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+    <script src="./mail1.js"></script>
+
+    <style>
+        /* Apply some basic styles */
+        #retrievedForm {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        #retrievedForm table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #retrievedForm th,
+        #retrievedForm td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        #retrievedForm th {
+            background-color: #f2f2f2;
+        }
+        #retrieveDataButton{
+            border-radius: 20px;
+        }
+
+        button {
+            border-radius: 10px;
+        }
+    </style>
+    </head>
+    <body>
+
+        <h2 style="text-align: center;">RETRIEVED APPOINTMENT DETAILS</h2>
+
+    <!-- Button to trigger data retrieval -->
+    <p style="text-align: center;">
+        <button id="retrieveDataButton">Retrieve Data</button>
+    </p>
+
+    <!-- Container to display retrieved data -->
+    <div id="retrievedForm">
+        <h3 style="text-align: center;"><u>APPOINTMENT INFORMATION</u></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Disease</th>
+                    <th>Doctor</th>
+                    <th>Message</th>
+                    <th>Action</th> <!-- New column for delete button -->
+                </tr>
+            </thead>
+            <tbody id="dataBody">
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include your Firebase configuration -->
+    <script>
+        // Reference your database
+        var contactFormDB = firebase.database().ref("appointment");
+
+        // Add an event listener to trigger the retrieval when needed
+        document.getElementById("retrieveDataButton").addEventListener("click", retrieveData);
+
+        function retrieveData() {
+            // Reference your database
+            var appointmentDB = database.ref("appointment");
+
+            // Container to display retrieved data
+            var dataBody = document.getElementById("dataBody");
+
+            // Fetch data from the database
+            appointmentDB.once("value")
+                .then(function(snapshot) {
+                    // Clear any existing data in the table
+                    dataBody.innerHTML = "";
+
+                    // Loop through each appointment entry in the database
+                    snapshot.forEach(function(childSnapshot) {
+                        var data = childSnapshot.val();
+
+                        // Create a new row for each record
+                        var row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${data.name}</td>
+                            <td>${data.email}</td>
+                            <td>${data.phone}</td>
+                            <td>${data.date}</td>
+                            <td>${data.department}</td>
+                            <td>${data.doctor}</td>
+                            <td>${data.message}</td>
+                            <td><button onclick="deleteRecord('${childSnapshot.key}')">Delete</button></td>
+                        `;
+
+                        // Append the row to the table body
+                        dataBody.appendChild(row);
+                    });
+                })
+                .catch(function(error) {
+                    console.error("Error retrieving data: ", error);
+                });
+        }
+
+        // Function to delete a record
+        function deleteRecord(recordKey) {
+            if (confirm("Are you sure you want to delete this record?")) {
+                // Remove the record from the database
+                database.ref("appointment").child(recordKey).remove()
+                    .then(function() {
+                        // Refresh the table after deletion
+                        retrieveData();
+                        alert("Record deleted successfully.");
+                    })
+                    .catch(function(error) {
+                        console.error("Error deleting record: ", error);
+                    });
+            }
+        }
+    </script>
+    
+</body>
+</html>
+</main>
+
+</body>
+</html>

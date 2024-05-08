@@ -1,0 +1,55 @@
+{% include 'includes/predict.html' %}
+<body>
+    <div id="prediction" style="background-color:#65aebb; width: 60%; top:5px ;margin-left: 20%; height:260px; border-radius: 15px;">
+       
+        <form>
+        <span style="font-family:Georgia, 'Times New Roman', Times, serif, sans-serif;font-size: 25px; color:indigo;
+        position: relative;left:80px; top:20px">
+        <h1 style="margin-left: 20%; font-size: 24px; font-weight: bold;"><u>PREDICTION RESULTS</u></h1>
+            <br>   There are chances you may have
+            <b id="wordToHover">{{disease[0]}}</b><div id="meaningPopup">Meaning will appear here</div><br>Consider booking an appointment with a specialist<br> for detailed examination of the condition.
+            <br>~<a href="http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/appointment.html">CLICK HERE</a> to secure an appointment
+            <br>
+        </span>
+        <br>
+        <!-- <button type="submit" class="btn btn-primary" style="padding: 10px;position: relative;left:400px; top:40px" name="search_doctor">Check Info</button> -->
+        </form>
+        <script>
+            const apiKey = 'd9b83bf4-fb7f-4bf3-9689-e664dce368fc'; // Replace with your actual API key
+        
+            const wordToHover = document.getElementById('wordToHover');
+            const meaningPopup = document.getElementById('meaningPopup');
+        
+            wordToHover.addEventListener('mouseover', async () => {
+                const word = wordToHover.innerText.toLowerCase();
+        
+                try {
+                    const response = await fetch(`https://dictionaryapi.com/api/v3/references/medical/json/${encodeURIComponent(word)}?key=${apiKey}`);
+        
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+        
+                    const data = await response.json();
+        
+                    if (Array.isArray(data) && data.length > 0) {
+                        const firstDefinition = data[0];
+                        meaningPopup.innerText = firstDefinition.shortdef ? firstDefinition.shortdef.join(', ') : 'No definition available';
+                        meaningPopup.style.display = 'block';
+                    } else {
+                        meaningPopup.innerText = 'Meaning not found';
+                        meaningPopup.style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error('Error fetching word meaning:', error);
+                    meaningPopup.innerText = `Error fetching meaning: ${error.message}`;
+                    meaningPopup.style.display = 'block';
+                }
+            });
+        
+            wordToHover.addEventListener('mouseout', () => {
+                meaningPopup.style.display = 'none';
+            });
+        </script>
+    </div>
+    </body>

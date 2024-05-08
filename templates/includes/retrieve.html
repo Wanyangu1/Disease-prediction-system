@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction Sytem</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: #65aebb;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: auto;
+            margin-top: 50px;
+            width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+       .container img {
+            max-width: 100%;
+            height: 150px;
+        }
+        .row img{
+            width: 330px;
+            height: 70px;
+        }
+
+        center {
+            margin-top: 20px;
+            color: #888;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data">
+            <div class="row"> 
+				<img src="disease prediction logo.png"/>
+                <br>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <h3><u>Login Details</u></h3>
+                        <label for="login_email">Email</label>
+                        <input type="text" name="login_email" id="login_email" class="form-control" placeholder="Enter your email">
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="login_password">Password</label>
+                        <input type="password" name="login_password" id="login_password" class="form-control" placeholder="Enter your password">
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <button type="button" id="login" name="login" class="btn btn-success">Login</button><br>
+                    <p>Don't have an account?<a href="auth1.html">Register</a></p>
+                </div>
+            </div><!-- end row -->
+            
+        </form>
+        <div class="col-sm-12">
+            <img src="firebase_auth.png" alt="Firebase Auth">
+        </div>
+        <center>Developed by <a href="static/default.html">ACW developers</a></center>
+    </div>
+
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyB5t3zPBIoLbSN-I1xOBSR_lq-Z12ZJ-Fw",
+      authDomain: "shinerweb-auth-c29fe.firebaseapp.com",
+      projectId: "shinerweb-auth-c29fe",
+      storageBucket: "shinerweb-auth-c29fe.appspot.com",
+      messagingSenderId: "754492291109",
+      appId: "1:754492291109:web:3d5fff583ad4c662ace7cc",
+      measurementId: "G-7DVFZLX39P"
+    };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      
+      //console.log(app);
+      const auth = getAuth();
+
+      // Predefined admin credentials
+      const predefinedEmail = "gitongori@gmail.com";
+      const predefinedPassword = "654321";
+
+      // ----- Login code start	  
+      document.getElementById("login").addEventListener("click", function() {
+          var email = document.getElementById("login_email").value;
+          var password = document.getElementById("login_password").value;
+
+          if (email === predefinedEmail && password === predefinedPassword) {
+              // Redirect to the administrator.html page
+              window.location.href = 'administrator.html';
+          } else {
+              // Proceed with regular login process
+              signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                  // Signed in 
+                  const user = userCredential.user;
+                  console.log(user);
+                  alert(user.email + " Login successfully!!!");
+                  document.getElementById('logout').style.display = 'block';
+
+                  // Function to set session token
+                    function setSessionToken(token) {
+                    localStorage.setItem('sessionToken', token);
+                }
+
+
+    // Function to store user's email in local storage
+    function setUserEmail(email) {
+        localStorage.setItem('userEmail', email);
+    }
+
+                  // Set session token upon successful login
+                    setSessionToken(user.uid);
+
+                  // Store user's name and email in local storage
+                    setUserEmail(user.email);
+
+
+                  // Redirect to default.html after successful login
+                  window.location.href = 'http://127.0.0.1:5500/Disease-Prediction-system-using-Machine-Learning-and-Flask-master/templates/includes/default.html';
+                  // ...
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.log(errorMessage);
+                  alert(errorMessage);
+                });
+          }
+        });
+      // ----- End
+        //----- Logout code start	  
+	  document.getElementById("logout").addEventListener("click", function() {
+		  signOut(auth).then(() => {
+			  // Sign-out successful.
+			  console.log('Sign-out successful.');
+			  alert('Sign-out successful.');
+			  document.getElementById('logout').style.display = 'none';
+			}).catch((error) => {
+			  // An error happened.
+			  console.log('An error happened.');
+			});		  		  
+	  });
+	  //----- End
+      // Other code remains unchanged
+</script>
+</html>

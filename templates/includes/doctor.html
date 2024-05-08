@@ -1,0 +1,161 @@
+<!-- doctor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include your CSS styles here -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            width: 200px;
+            height: 100%;
+            background-color: #555;
+            position: fixed;
+            padding-top: 20px;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+         /* Doctor Info Styling */
+         .member {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .member .pic {
+            width: 50%;
+            overflow: hidden;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .member .pic img {
+            width: 100%;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .member .member-info {
+            padding: 20px;
+        }
+
+        .social a {
+            margin-right: 10px;
+            color: #007bff;
+        }
+ 
+    </style>
+</head>
+<body>
+
+    <!-- Displayed Doctor Info Section -->
+    <div class="col-lg-6" id="doctorInfo">
+        <div class="member d-flex align-items-start">
+            <div class="pic"><img src="static/img/doctors/team 1.jpg" class="img-fluid" alt=""></div>
+            <div class="member-info">
+                <h4 id="doctorName"></h4>
+                <span id="designation"></span>
+                <p id="description"></p>
+                <div class="social">
+                    <a id="twitter" href="#"><i class="ri-twitter-fill"></i></a>
+                    <a id="facebook" href="#"><i class="ri-facebook-fill"></i></a>
+                    <a id="instagram" href="#"><i class="ri-instagram-fill"></i></a>
+                    <a id="linkedin" href="#"><i class="ri-linkedin-box-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include your JavaScript code here -->
+    <!-- doctor.html -->
+<!-- ... (unchanged) ... -->
+
+<script>
+    // Fetch and display doctor info
+    fetch('http://localhost:3000/doctor')
+    .then(response => response.json())
+    .then(doctorInfo => {
+        document.getElementById('doctorName').innerText = doctorInfo.doctorName;
+        document.getElementById('designation').innerText = doctorInfo.designation;
+        document.getElementById('description').innerText = doctorInfo.description;
+        document.getElementById('twitter').href = doctorInfo.twitter;
+        document.getElementById('facebook').href = doctorInfo.facebook;
+        document.getElementById('instagram').href = doctorInfo.instagram;
+        document.getElementById('linkedin').href = doctorInfo.linkedin;
+    })
+    .catch(error => {
+        console.error('Error fetching doctor info:', error);
+    });
+</script>
+</html>
+
+
+</body>
+</html>
